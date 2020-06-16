@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js"
+    ></script>
+  </head>
+  <body>
+    Success!
+    <script>
+      Office.onReady((info) => {
+        setTimeout(() => {
+          var retval = {
+            name: new URLSearchParams(window.location.search).get('name')
+          };
+          Office.context.ui.messageParent(JSON.stringify(retval));
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
