@@ -28,12 +28,13 @@ app.get('/index.html', function (req, res) {
 // login request
 // redirect to correct url
 
-// Sometimes this will cause a blank white screen after the login process
+// Sometimes this will cause a blank white screen after the login process (Android only)
 // All of the data gets passed back to the parent correctly (logged in state)
 app.get('/loginRedirect', function (req, res) {
   res.redirect('/js_redirect');
 });
 
+// This the JS redirect here causes issues on iOS (transparent screen iOS 13, black screen iOS 12) 
 app.get('/js_redirect', function (req, res) {
   res.sendFile(path.join(__dirname + '/js_redirect.html'));
 });
